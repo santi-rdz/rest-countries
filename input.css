@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant filter-active (&:where(.filter-active, .filter-active *));
+@custom-variant active (&:where(.active, .active *));
+
+@font-face {
+  font-family: "nunito";
+  src: url("font/Nunito_Sans/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf");
+  font-style: normal;
+}
+
+@theme {
+  --font-nunito: "nunito";
+  --color-grey-950: #111517;
+  --color-grey-400: #808080;
+  --color-grey-350: #979797;
+  --color-grey-300: #b2b2b2;
+  --color-grey-250: #c4c4c4;
+  --color-grey-50: #fcfcfc;
+  --color-blue-950: #202c36;
+  --color-blue-900: #2b3844;
+  --breakpoint-xs: 600px;
+  --animate-loading: loading 1s linear infinite alternate;
+  --animate-reveal: reveal ease-out 450ms both;
+  --animate-fadeIn: fade-in ease-out 500ms both;
+  --animate-move: move ease-in-out 1.5s infinite both;
+
+  @keyframes loading {
+    0% {
+      background-color: oklch(89.2% 0.058 10.001);
+      opacity: 0.3;
+    }
+    100% {
+      background-color: oklch(89.2% 0.058 10.001);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes reveal {
+    0% {
+      transform: translateY(40px);
+    }
+    100% {
+      transfrom: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes move {
+    0% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(-10deg);
+    }
+  }
+}
+.my-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 0));
+  gap: 40px;
+}
+@utility my-container {
+  width: min(90%, 90rem);
+  margin-inline: auto;
+}
+@utility sm-container {
+  width: min(80%, 90rem);
+  margin-inline: auto;
+}
+@utility xs-container {
+  width: min(67%, 90rem);
+  margin-inline: auto;
+}
+@utility text-1 {
+  font-size: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+  line-height: 1.375;
+}
+@utility text-2 {
+  /* 18-24px */
+  font-size: clamp(1.125rem, 0.993rem + 0.5634vw, 1.5rem);
+  line-height: 1.375;
+}
+
+@utility text-4 {
+  /* 12-16px */
+  font-size: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
+  line-height: 2;
+}
+@utility text-5 {
+  /* 12-14px */
+  font-size: clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem);
+  line-height: 1.45;
+}

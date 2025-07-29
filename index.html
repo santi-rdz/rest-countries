@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <title>Countries</title>
+    <script src="main.js" defer></script>
+    <script src="theme.js" defer></script>
+  </head>
+  <body
+    class="font-nunito bg-grey-50 dark:bg-blue-950 text-blue-950 dark:text-white pb-20"
+  >
+    <header class="shadow-sm py-7 dark:bg-blue-900">
+      <nav class="my-container flex justify-between items-center">
+        <h1 class="text-2 font-extrabold">Where in the world?</h1>
+        <button class="themeBtn flex cursor-pointer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6 dark:hidden"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6 hidden dark:block"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+            />
+          </svg>
+        </button>
+      </nav>
+    </header>
+    <main>
+      <header
+        class="my-container mt-[clamp(1.25rem,0.6338rem+2.6291vw,3rem)] text-3 flex flex-col gap-4 md:flex-row"
+      >
+        <form class="country-filter grow relative">
+          <input
+            name="filter-search"
+            type="search"
+            placeholder="Search for a country..."
+            class="filter-search peer px-8 pl-11 dark:bg-blue-900 lg:w-[480px] placeholder:text-grey-400 dark:placeholder:text-white py-4 shadow-sm rounded-md w-full placeholder:opacity-80 bg-white"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.4"
+            stroke="currentColor"
+            class="transition-opacity stroke-grey-400 dark:stroke-white size-5 absolute top-1/2 -translate-y-1/2 left-4 opacity-80"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+        </form>
+        <div class="filter-component w-52 relative">
+          <button
+            type="button"
+            class="group btn-region shadow-sm flex transition-shadow duration-300 dark:bg-blue-900 justify-between p-4 bg-white w-full rounded-md cursor-pointer items-center"
+            onclick="this.parentElement.classList.toggle('filter-active')"
+          >
+            <p class="btnRegion-Text">Filter by Region</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2.4"
+              stroke="currentColor"
+              class="size-4 group-hover:scale-125 group-hover:animate-move filter-active:rotate-180 transition-transform duration-300"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </button>
+          <ul
+            class="regions-list shadow-sm w-full dark:bg-blue-900 opacity-0 z-10 transition-[opacity_scale] filter-active:opacity-100 scale-95 filter-active:scale-100 pointer-events-none filter-active:pointer-events-auto duration-300 rounded-md p-4 space-y-2 bg-white absolute top-[120%]"
+          >
+            <li
+              class="region-item active active:pointer-events-none"
+              data-all="all"
+              data-region="Filter By region"
+            >
+              <button
+                class="cursor-pointer w-full text-start inline-flex items-center gap-2"
+              >
+                <p class="active:opacity-60">All</p>
+                <span
+                  class="size-2 hidden active:block bg-blue-500 rounded-full"
+                ></span>
+              </button>
+            </li>
+            <li
+              class="region-item active:pointer-events-none"
+              data-region="Africa"
+            >
+              <button
+                class="cursor-pointer w-full text-start inline-flex items-center gap-2"
+              >
+                <p class="active:opacity-60">Africa</p>
+                <span
+                  class="size-2 hidden active:block bg-blue-500 rounded-full"
+                ></span>
+              </button>
+            </li>
+            <li
+              class="region-item active:pointer-events-none"
+              data-region="America"
+            >
+              <button
+                class="cursor-pointer w-full text-start inline-flex items-center gap-2"
+              >
+                <p class="active:opacity-60">America</p>
+                <span
+                  class="size-2 hidden active:block bg-blue-500 rounded-full"
+                ></span>
+              </button>
+            </li>
+            <li
+              class="region-item active:pointer-events-none"
+              data-region="Asia"
+            >
+              <button
+                class="cursor-pointer w-full text-start inline-flex items-center gap-2"
+              >
+                <p class="active:opacity-60">Asia</p>
+                <span
+                  class="size-2 hidden active:block bg-blue-500 rounded-full"
+                ></span>
+              </button>
+            </li>
+            <li
+              class="region-item active:pointer-events-none"
+              data-region="Europe"
+            >
+              <button
+                class="cursor-pointer w-full text-start inline-flex items-center gap-2"
+              >
+                <p class="active:opacity-60">Europe</p>
+                <span
+                  class="size-2 hidden active:block bg-blue-500 rounded-full"
+                ></span>
+              </button>
+            </li>
+            <li
+              class="region-item active:pointer-events-none"
+              data-region="Oceania"
+            >
+              <button
+                class="cursor-pointer w-full text-start inline-flex items-center gap-2"
+              >
+                <p class="active:opacity-60">Oceania</p>
+                <span
+                  class="size-2 hidden active:block bg-blue-500 rounded-full"
+                ></span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <section
+        class="countries-container sm-container mt-[clamp(2.5rem,2.1479rem+1.5023vw,3.5rem)] lg:my-container"
+      >
+        <ul
+          class="countries grid justify-center lg:justify-start grid-cols-1 gap-10 xs:grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(280px,1fr))]"
+        ></ul>
+      </section>
+    </main>
+  </body>
+</html>
