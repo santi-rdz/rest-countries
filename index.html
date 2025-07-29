@@ -14,14 +14,16 @@
     <header class="shadow-sm py-7 dark:bg-blue-900">
       <nav class="my-container flex justify-between items-center">
         <h1 class="text-2 font-extrabold">Where in the world?</h1>
-        <button class="themeBtn flex cursor-pointer">
+        <button
+          class="themeBtn flex cursor-pointer transition-transform ease-in hover:scale-110 duration-300"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-6 dark:hidden"
+            class="moon size-6 dark:hidden animate-move"
           >
             <path
               stroke-linecap="round"
@@ -35,7 +37,7 @@
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-6 hidden dark:block"
+            class="sun animate-spin size-6 hidden dark:block"
           >
             <path
               stroke-linecap="round"

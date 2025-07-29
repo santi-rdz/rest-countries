@@ -29,6 +29,9 @@
     --radius-xs: 0.125rem;
     --radius-sm: 0.25rem;
     --radius-md: 0.375rem;
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --animate-spin: spin 1s linear infinite;
     --animate-bounce: bounce 1s infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -359,8 +362,14 @@
   .animate-loading {
     animation: var(--animate-loading);
   }
+  .animate-move {
+    animation: var(--animate-move);
+  }
   .animate-reveal {
     animation: var(--animate-reveal);
+  }
+  .animate-spin {
+    animation: var(--animate-spin);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -600,6 +609,10 @@
     --tw-duration: 300ms;
     transition-duration: 300ms;
   }
+  .ease-in {
+    --tw-ease: var(--ease-in);
+    transition-timing-function: var(--ease-in);
+  }
   .group-hover\:-translate-x-1 {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
@@ -676,6 +689,16 @@
         --tw-scale-x: 105%;
         --tw-scale-y: 105%;
         --tw-scale-z: 105%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:scale-110 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 110%;
+        --tw-scale-y: 110%;
+        --tw-scale-z: 110%;
         scale: var(--tw-scale-x) var(--tw-scale-y);
       }
     }
@@ -849,6 +872,18 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 0));
   gap: 40px;
 }
+.moon, .sun {
+  animation-play-state: paused;
+  &:hover {
+    animation-play-state: running;
+  }
+}
+.sun {
+  animation-duration: 9s;
+}
+.moon {
+  animation-duration: 4s;
+}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
@@ -966,6 +1001,15 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 @keyframes bounce {
   0%, 100% {
     transform: translateY(-25%);
@@ -1043,6 +1087,7 @@
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
       --tw-duration: initial;
+      --tw-ease: initial;
     }
   }
 }

@@ -72,6 +72,20 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 0));
   gap: 40px;
 }
+
+.moon,
+.sun {
+  animation-play-state: paused;
+  &:hover {
+    animation-play-state: running;
+  }
+}
+.sun {
+  animation-duration: 9s;
+}
+.moon {
+  animation-duration: 4s;
+}
 @utility my-container {
   width: min(90%, 90rem);
   margin-inline: auto;
