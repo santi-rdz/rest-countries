@@ -1,6 +1,6 @@
 ### REST Countries API with Color Theme Switcher
 
-## Liver Server: (Page)[https://rdz-api-rest-countries.netlify.app/]
+## Liver Server: [Page](https://rdz-api-rest-countries.netlify.app/)
 ⸻
 ## Overview
 <img width="1668" height="998" alt="image" src="https://github.com/user-attachments/assets/b8567a5b-8038-4720-ad44-2983d3b81707" />
